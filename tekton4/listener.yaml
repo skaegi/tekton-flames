@@ -1,0 +1,22 @@
+apiVersion: tekton.dev/v1alpha1
+kind: TriggerBinding
+metadata:
+  name: binding
+spec:
+  params:
+    - name: message
+      value: binding message
+---
+apiVersion: tekton.dev/v1alpha1
+kind: EventListener
+metadata:
+  name: listener
+spec:
+  triggers:
+    - binding:
+        name: binding
+      template:
+        name: template
+      params:
+        - name: message-l
+          value: Hello from the Manual Triggers EventListener!
