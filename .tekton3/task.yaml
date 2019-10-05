@@ -55,7 +55,7 @@ spec:
           value: $(inputs.params.imageName)
       command: ["/bin/bash", "-c"]
       args:
-        - echo test;
+        - echo test2;
           ibmcloud login -a $API -r $REGION;
           export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh";
           source pre-build-check.sh;
