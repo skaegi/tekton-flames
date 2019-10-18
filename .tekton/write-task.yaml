@@ -17,7 +17,9 @@ spec:
           value: $(inputs.params.message)
       command: ["/bin/sh", "-c"]
       args:
-        - ls -la /step-mount;
+        - pwd;
+          ls -la;
+          ls -la /workspace/step-mount;
           echo $message > /workspace/step-mount/message;
       volumeMounts:
         - mountPath: /workspace/step-mount
