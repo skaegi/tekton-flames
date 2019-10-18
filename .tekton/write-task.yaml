@@ -18,9 +18,9 @@ spec:
       command: ["/bin/sh", "-c"]
       args:
         - ls -la /step-mount;
-          echo $message > /step-mount/message;
+          echo $message > /workspace/step-mount/message;
       volumeMounts:
-        - mountPath: /step-mount
+        - mountPath: /workspace/step-mount
           name: task-volume
   volumes:
     - name: task-volume
