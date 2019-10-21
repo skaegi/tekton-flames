@@ -12,10 +12,10 @@ spec:
       image: alpine
       command: ["/bin/sh", "-c"]
       args:
-        - ls -la /workspace/step-mount;
-          cat /workspace/step-mount/message;
+        - ls -la /workspace/messages;
+          cat /workspace/messages/message;
       volumeMounts:
-        - mountPath: /workspace/step-mount
+        - mountPath: /workspace/messages
           name: task-volume
   volumes:
     - name: task-volume

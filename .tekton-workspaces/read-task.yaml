@@ -1,0 +1,14 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: read-task
+spec:
+  steps:
+    - name: message-mount-read
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - cat /workspace/messages/message;
+  workspaceMounts:
+    - name: messages
+      description: where we read messages from

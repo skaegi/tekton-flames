@@ -1,0 +1,21 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: write-task
+spec:
+  inputs:
+    params:
+      - name: message
+        description: the message
+  steps:
+    - name: message-mount-write
+      image: alpine
+      env:
+        - name: message
+          value: $(inputs.params.message)
+      command: ["/bin/sh", "-c"]
+      args:
+        - echo $message > /workspace/messages/message;    
+  workspaceMounts:
+    - name: messages
+      description: where we write messages to

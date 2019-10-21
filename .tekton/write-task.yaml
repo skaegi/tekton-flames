@@ -19,10 +19,10 @@ spec:
       args:
         - pwd;
           ls -la;
-          ls -la /workspace/step-mount;
-          echo $message > /workspace/step-mount/message;
+          ls -la /workspace/messages;
+          echo $message > /workspace/messages/message;
       volumeMounts:
-        - mountPath: /workspace/step-mount
+        - mountPath: /workspace/messages
           name: task-volume
   volumes:
     - name: task-volume

@@ -1,0 +1,38 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Pipeline
+metadata:
+  name: pipeline
+spec:
+  params:
+    - name: message
+      description: the message
+  tasks:
+    - name: pipeline-write-task
+      taskRef:
+        name: write-task
+      params:
+        - name: message
+          value: $(params.message)
+      workspaceMounts:
+        - name: messages
+          volumeName: pipeline-volume
+    - name: pipeline-read-task
+      runAfter: [pipeline-write-task]
+      taskRef:
+        name: read-task
+      workspaceMounts:
+        - name: messages
+          volumeName: pipeline-volume
+          readOnly: true
+  workspaceVolumes:
+    - name: pipeline-volume
+      description: The volume where we will write and then read the message
+      #OneOf:  
+      #  secret: [SecretVolumeSource]:
+      #  configMap: [ConfigMapVolumeSource]
+      #  persistentVolumeClaim: [PersitentVoluemClaimVolumeSource]
+      #  persistentVolumeClaimTemplate: [PersistentVolumeClaim]
+      #Default: persistentVolumeClaimTemplate populated from current Tekton default
+
+
+
