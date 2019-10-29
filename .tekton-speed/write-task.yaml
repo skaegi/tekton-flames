@@ -1,0 +1,30 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: write-task
+spec:
+  inputs:
+    params:
+      - name: task-pvc
+        description: the task pvc
+      - name: message
+        description: the message
+  steps:
+    - name: message-mount-write
+      image: alpine
+      env:
+        - name: message
+          value: $(inputs.params.message)
+      command: ["/bin/sh", "-c"]
+      args:
+        - pwd;
+          ls -la;
+          ls -la /workspace/messages;
+          echo $message > /workspace/messages/message;
+      volumeMounts:
+        - mountPath: /workspace/messages
+          name: task-volume
+  volumes:
+    - name: task-volume
+      persistentVolumeClaim:
+        claimName: $(inputs.params.task-pvc)

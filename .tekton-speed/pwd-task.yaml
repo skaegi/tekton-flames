@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: pwd-task
+spec:
+  steps:
+    - name: pwd
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - pwd;

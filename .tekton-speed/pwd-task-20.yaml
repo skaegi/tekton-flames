@@ -1,0 +1,106 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: pwd-task-20
+spec:
+  steps:
+    - name: pwd1
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - pwd;
+    - name: pwd2
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - pwd;
+    - name: pwd3
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - pwd;
+    - name: pwd4
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - pwd;
+    - name: pwd5
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - pwd;
+    - name: pwd6
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - pwd;
+    - name: pwd7
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - pwd;
+    - name: pwd8
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - pwd;
+    - name: pwd9
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - pwd;
+    - name: pwd10
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - pwd;
+    - name: pwd11
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - pwd;
+    - name: pwd12
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - pwd;
+    - name: pwd13
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - pwd;
+    - name: pwd14
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - pwd;
+    - name: pwd15
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - pwd;
+    - name: pwd16
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - pwd;
+    - name: pwd17
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - pwd;
+    - name: pwd18
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - pwd;
+    - name: pwd19
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - pwd;
+    - name: pwd20
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args:
+        - pwd;
