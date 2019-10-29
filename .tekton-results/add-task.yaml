@@ -1,0 +1,24 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: add
+spec:
+  params:
+    - name: first
+      description: the first operand
+    - name: second
+      description: the second operand
+  results:
+    - name: sum
+      description: the sum of the first and second operand
+  steps:
+    - name: add
+      image: alpine
+      env:
+        - name: OP1
+          value: $(params.first)
+        - name: OP2
+          value: $(params.second)        
+      command: ["/bin/sh", "-c"]
+      args:
+        - echo $((${OP1}+${OP2})) | tee /workspace/results/sum;
