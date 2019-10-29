@@ -10,7 +10,6 @@ spec:
       description: the message
   tasks:
     - name: pipeline-pwd-twst
-      runAfter: [pipeline-read-task]
       taskRef:
         name: pwd-task-20
        
