@@ -9,21 +9,6 @@ spec:
     - name: message
       description: the message
   tasks:
-    - name: pipeline-write-task
-      taskRef:
-        name: write-task
-      params:
-        - name: task-pvc
-          value: $(params.pipeline-pvc)
-        - name: message
-          value: $(params.message)
-    - name: pipeline-read-task
-      runAfter: [pipeline-write-task]
-      taskRef:
-        name: read-task
-      params:
-        - name: task-pvc
-          value: $(params.pipeline-pvc)
     - name: pipeline-pwd-twst
       runAfter: [pipeline-read-task]
       taskRef:
